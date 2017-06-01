@@ -1,0 +1,47 @@
+#%RAML 0.8
+title: CurrencyConverter
+version: 1.0
+baseUri: http://localhost:8082
+/currency:
+  displayName: Currency Converter
+  get:
+    description: currency  converter
+    queryParameters: 
+       year:
+         description: year for the conversion
+         type: integer
+         required: false
+         repeat: false
+         example: "2017"
+       month:
+          description: month  for the conversion
+          type: integer
+          required: false
+          repeat: false
+          example: "03"
+       source:
+          description: source  currency for the conversion
+          type: string
+          required: false
+          repeat: false
+          example: "GBP"
+       target:
+          description: destination currency  for the conversion
+          type: string
+          required: false
+          repeat: false
+          example: "USD"         
+    responses: 
+        "200":
+          body: 
+            application/json:
+              example: |
+                  [
+                    {
+                    "year": "2017",
+                    "month": "02",
+                    "sourcce": "GBP",
+                    "target": "USD"
+                    }
+                  ]
+        
